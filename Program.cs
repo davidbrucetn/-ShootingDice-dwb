@@ -54,6 +54,13 @@ namespace ShootingDice
 
             Console.WriteLine("-------------------");
 
+            SoreLoserUpperHalfPlayer soreUpper = new SoreLoserUpperHalfPlayer();
+            soreUpper.Name = "UpperHalf Hater";
+
+            soreUpper.Play(large);
+
+            Console.WriteLine("-------------------");
+
             List<Player> players = new List<Player>()
             {
                 player1,
