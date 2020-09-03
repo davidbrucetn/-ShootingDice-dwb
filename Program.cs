@@ -8,7 +8,6 @@ namespace ShootingDice
     {
         static void Main(string[] args)
         {
-
             // DWB update
             SmackTalkingPlayer player1 = new SmackTalkingPlayer();
             player1.Name = "Bob";
@@ -21,7 +20,7 @@ namespace ShootingDice
             Console.WriteLine("-------------------");
 
             HumanPlayer player3 = new HumanPlayer();
-            player3.Name = "Wilma";
+            player3.Name = "Human Wilma";
 
             player3.Play(player2);
 
@@ -41,9 +40,9 @@ namespace ShootingDice
             Console.WriteLine("-------------------");
 
             SoreLoserPlayer exceptional = new SoreLoserPlayer();
-            exceptional.Name = "Exceptional Ed";
+            exceptional.Name = "SoreLoser Exceptional Ed";
 
-            exceptional.Play(large);
+            exceptional.Play(player1);
 
             Console.WriteLine("-------------------");
 
@@ -61,6 +60,16 @@ namespace ShootingDice
 
             Console.WriteLine("-------------------");
 
+            HumanPlayer moreHumanThanHuman = new HumanPlayer();
+            moreHumanThanHuman.Name = "Human Uberman Neitzsche";
+
+            moreHumanThanHuman.Play(player3);
+
+            Console.WriteLine("Object Type:");
+            Console.WriteLine(moreHumanThanHuman.GetType().Equals(typeof(HumanPlayer)));
+
+            Console.WriteLine("-------------------");
+
             List<Player> players = new List<Player>()
             {
                 player1,
@@ -69,7 +78,9 @@ namespace ShootingDice
                 large,
                 smartass,
                 exceptional,
-                upperPlayer
+                upperPlayer,
+                soreUpper,
+                moreHumanThanHuman
             };
 
             PlayMany(players);
@@ -100,6 +111,7 @@ namespace ShootingDice
 
                 // Make adjacent players play noe another
                 Player player1 = shuffledPlayers[i];
+
                 Player player2 = shuffledPlayers[i + 1];
                 player1.Play(player2);
             }

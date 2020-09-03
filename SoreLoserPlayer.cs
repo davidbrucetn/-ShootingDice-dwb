@@ -16,28 +16,37 @@ namespace ShootingDice
 
             Console.WriteLine($"{Name} rolls a {myRoll}");
             Console.WriteLine($"{other.Name} rolls a {otherRoll}");
-            if (myRoll > otherRoll)
+            try
             {
-                Console.WriteLine($"{Name} Wins!");
-            }
-            else if (myRoll < otherRoll)
-            {
-                try
+                if (myRoll > otherRoll)
                 {
-                    myRoll = myRoll / 0;
-                    Console.WriteLine($"{other.Name} Wins!");
+                    Console.WriteLine($"{Name} Wins!");
                 }
-                catch (DivideByZeroException e)
+                else if (myRoll < otherRoll)
                 {
-                    Console.WriteLine($"{other.Name} Wins! Not Fair! {e.Message}");
-                }
+                    throw new IndexOutOfRangeException();
+                    // try
+                    // {
+                    //     myRoll = myRoll / 0;
+                    //     Console.WriteLine($"{other.Name} Wins!");
+                    // }
+                    // catch (DivideByZeroException e)
+                    // {
+                    //     Console.WriteLine($"{other.Name} Wins! Not Fair! {e.Message}");
+                    // }
 
+                }
+                else
+                {
+                    // if the rolls are equal it's a tie
+                    Console.WriteLine("It's a tie");
+                }
             }
-            else
+            catch (IndexOutOfRangeException err)
             {
-                // if the rolls are equal it's a tie
-                Console.WriteLine("It's a tie");
+                Console.WriteLine($"{other.Name} Wins! Not Fair! {err.Message}");
             }
+
         }
     }
 
