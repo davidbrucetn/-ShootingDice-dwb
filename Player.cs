@@ -15,7 +15,7 @@ namespace ShootingDice
 
         public virtual void Play(Player other)
         {
-            // Call roll for "this" object and for the "other" object
+
             int myRoll = Roll();
             int otherRoll = other.Roll();
 
